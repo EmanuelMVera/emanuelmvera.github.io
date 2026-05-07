@@ -6,7 +6,6 @@ import { getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 import { ProjectTechChips } from "@/components/projects/project-tech-chips";
 import { ProjectLinks } from "@/components/projects/project-links";
 import { ProjectGallery } from "@/components/projects/project-gallery";
-import { ProjectCodeSnippet } from "@/components/projects/project-code-snippet";
 import { SectionContainer } from "@/components/layout/section-container";
 import { Badge } from "@/components/ui/badge";
 import { siteConfig } from "@/data/site";
@@ -90,7 +89,7 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* Contenido MDX */}
       {project.content && (
-        <div className="prose prose-slate max-w-none dark:prose-invert">
+        <div className="prose prose-slate dark:prose-invert max-w-none">
           <MDXRemote source={project.content} />
         </div>
       )}
