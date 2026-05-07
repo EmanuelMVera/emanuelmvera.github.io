@@ -1,0 +1,49 @@
+// Schema de ejemplo para cuando se agregue persistencia.
+// No está activo — renombrar a schema.prisma y correr `npx prisma migrate dev`.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Mensajes del formulario de contacto
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+  read      Boolean  @default(false)
+
+  @@map("messages")
+}
+
+// Proyectos (si se migra desde MDX a DB)
+model Project {
+  id          String        @id @default(cuid())
+  slug        String        @unique
+  title       String
+  description String
+  status      ProjectStatus @default(LIVE)
+  featured    Boolean       @default(false)
+  order       Int           @default(0)
+  coverImage  String?
+  demoUrl     String?
+  repoUrl     String?
+  tech        String[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("projects")
+}
+
+enum ProjectStatus {
+  LIVE
+  IN_PROGRESS
+  COMING_SOON
+}

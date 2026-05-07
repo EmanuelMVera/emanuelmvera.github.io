@@ -1,8 +1,40 @@
-export default function Home() {
+import { HeroSection } from "@/components/hero/hero-section";
+import { ProjectGrid } from "@/components/projects/project-grid";
+import { AboutSection } from "@/components/about/about-section";
+import { SkillsSection } from "@/components/skills/skills-section";
+import { ContactSection } from "@/components/contact/contact-section";
+import { SectionContainer } from "@/components/layout/section-container";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { ConsentBanner } from "@/components/analytics/consent-banner";
+import { getFeaturedProjects } from "@/lib/projects";
+import { siteConfig } from "@/data/site";
+
+export default function HomePage() {
+  const featuredProjects = getFeaturedProjects();
+  const { projects } = siteConfig;
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Mi Portafolio</h1>
-      <p className="mt-4 text-xl text-gray-600">Próximamente...</p>
-    </main>
+    <>
+      <HeroSection />
+
+      <SectionContainer id="proyectos" className="py-20">
+        <SectionHeading title={projects.heading} subtitle={projects.intro} />
+        <ProjectGrid projects={featuredProjects} />
+      </SectionContainer>
+
+      <div className="bg-(--bg)">
+        <AboutSection />
+      </div>
+
+      <div className="bg-(--surface)">
+        <SkillsSection />
+      </div>
+
+      <div className="bg-(--bg)">
+        <ContactSection />
+      </div>
+
+      <ConsentBanner />
+    </>
   );
 }
