@@ -11,13 +11,9 @@ describe("getProjectSlugs", () => {
 
   it("devuelve slugs desde archivos .mdx", async () => {
     vi.mocked(fs.existsSync).mockReturnValue(true);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    vi.mocked(fs.readdirSync).mockReturnValue([
-      "app-clima.mdx",
-      "billetera-virtual.mdx",
-      "proximamente.mdx",
-      "otro.ts",
-    ] as any);
+    (
+      vi.mocked(fs.readdirSync) as unknown as { mockReturnValue: (value: string[]) => void }
+    ).mockReturnValue(["app-clima.mdx", "billetera-virtual.mdx", "proximamente.mdx", "otro.ts"]);
 
     const { getProjectSlugs } = await import("@/lib/mdx");
     const slugs = getProjectSlugs();

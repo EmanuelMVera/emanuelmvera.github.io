@@ -1,16 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { THEME_KEY } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
-  }, []);
+  const [isDark, setIsDark] = useState(
+    () => typeof document !== "undefined" && document.documentElement.classList.contains("dark")
+  );
 
   function toggle() {
     const next = !isDark;
@@ -26,7 +24,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       className={cn(
         "rounded-md p-2 text-(--muted) transition-colors duration-150",
         "hover:bg-(--bg) hover:text-(--text)",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)",
+        "focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:outline-none",
         className
       )}
     >
