@@ -1,50 +1,54 @@
 @import "tailwindcss";
 
-/* Dark mode: se activa cuando <html> tiene la clase "dark" */
 @variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
-    --bg: #f7f8fa;
+    --bg: #f8fafc;
     --surface: #ffffff;
-    --hero: #0b1b3a;
-    --accent: #3b82f6;
-    --accent-2: #7c3aed;
+    --hero: #0b1120;
+    --accent: #2563eb;
+    --accent-2: #06b6d4;
+    --violet: #7c3aed;
     --text: #0f172a;
     --muted: #475569;
-    --border: #e5e7eb;
-    --radius: 0.5rem;
+    --border: #e2e8f0;
   }
 
   .dark {
-    --bg: #0f172a;
-    --surface: #1e293b;
-    --hero: #0b1b3a;
-    --accent: #60a5fa;
-    --accent-2: #a78bfa;
-    --text: #f8fafc;
+    --bg: #020617;
+    --surface: #0f172a;
+    --hero: #020617;
+    --accent: #3b82f6;
+    --accent-2: #22d3ee;
+    --violet: #a78bfa;
+    --text: #e2e8f0;
     --muted: #94a3b8;
-    --border: #334155;
+    --border: #1e293b;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
+  html { scroll-behavior: smooth; }
   body {
-    background-color: var(--bg);
+    background:
+      radial-gradient(circle at 10% 0%, color-mix(in oklab, var(--accent) 16%, transparent) 0%, transparent 45%),
+      radial-gradient(circle at 90% 20%, color-mix(in oklab, var(--accent-2) 12%, transparent) 0%, transparent 44%),
+      var(--bg);
     color: var(--text);
   }
 
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 2px;
-  }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+@layer utilities {
+  .surface-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--border) 45%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--border) 45%, transparent) 1px, transparent 1px);
+    background-size: 36px 36px;
   }
 }
