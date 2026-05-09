@@ -4,23 +4,22 @@
 // Ver también: docs/content-replacement-checklist.md
 // ─────────────────────────────────────────────────────────────────────────────
 
-const NOMBRE_COMPLETO = "{{NOMBRE_COMPLETO}}"; // TODO: tu nombre completo
-const TITULO_PROFESIONAL = "Desarrollador Web Junior";
-const EMAIL = "{{EMAIL}}"; // TODO: tu@email.com
-const GITHUB_URL = "{{GITHUB_URL}}"; // TODO: https://github.com/tu-usuario
-const LINKEDIN_URL = "{{LINKEDIN_URL}}"; // TODO: https://linkedin.com/in/tu-usuario
-const CV_FILENAME = "{{CV_FILENAME}}"; // TODO: nombre del PDF en public/cv/
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://{{SITE_URL}}"; // TODO: URL de Vercel o dominio propio
-const INSTITUTO = "{{INSTITUTO}}"; // TODO: nombre del instituto
-const EDUCACION_ANIOS = "{{EDUCACION_ANIOS}}"; // TODO: ej. "2021 – 2024"
+const NOMBRE_COMPLETO = "Emanuel M. Vera";
+const TITULO_PROFESIONAL = "Desarrollador Junior";
+const EMAIL = "emanuel_vera@live.com.ar";
+const GITHUB_URL = "https://github.com/emanuelmvera";
+const LINKEDIN_URL = "https://linkedin.com/in/emanuelmvera";
+const CV_FILENAME = "cv-emanuelmvera.pdf"; // TODO: nombre del PDF en public/cv/
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://emanuelmvera.github.io/"; // TODO: URL de Vercel o dominio propio
+const INSTITUTO = "Instituto Tecnológico Beltrán";
+const EDUCACION_ANIOS = "2020 – actual"; // TODO: ej. "2021 – 2024"
 
 export const siteConfig = {
   fullName: NOMBRE_COMPLETO,
   professionalTitle: TITULO_PROFESIONAL,
   email: EMAIL,
-  phone: "", // Opcional
-  location: "{{LOCALIDAD}}", // TODO: ciudad, país
+  phone: "2224499021", // Opcional
+  location: "Guernica", // TODO: ciudad, país
   githubUrl: GITHUB_URL,
   linkedinUrl: LINKEDIN_URL,
   cvUrl: `/cv/${CV_FILENAME}`,
@@ -129,8 +128,7 @@ export const siteConfig = {
       },
       submit: "Enviar mensaje",
       sending: "Enviando...",
-      success:
-        "¡Gracias! Tu mensaje fue enviado correctamente. Te responderé lo antes posible.",
+      success: "¡Gracias! Tu mensaje fue enviado correctamente. Te responderé lo antes posible.",
       error: `No pude enviar el mensaje en este momento. Por favor intenta de nuevo o escríbeme a ${EMAIL}.`,
     },
   },
