@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <HeroSection />
 
-      <SectionContainer id="proyectos" className="py-20">
+      <SectionContainer id="proyectos" className="max-w-7xl py-16 sm:py-20">
         <SectionHeading title={projects.heading} subtitle={projects.intro} />
         <ProjectGrid projects={featuredProjects} />
       </SectionContainer>
