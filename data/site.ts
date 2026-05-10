@@ -5,7 +5,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 const NOMBRE_COMPLETO = "Emanuel M. Vera";
-const TITULO_PROFESIONAL = "Desarrollador Junior";
+const TITULO_PROFESIONAL = "Desarrollador Web Junior";
 const EMAIL = "emanuel_vera@live.com.ar";
 const GITHUB_URL = "https://github.com/emanuelmvera";
 const LINKEDIN_URL = "https://linkedin.com/in/emanuelmvera";
@@ -34,13 +34,13 @@ export const siteConfig = {
   ],
 
   hero: {
-    eyebrow: "Portafolio personal",
+    eyebrow: "Portfolio personal",
     name: NOMBRE_COMPLETO,
     role: TITULO_PROFESIONAL,
     tagline:
       "Construyo interfaces claras, dashboards y formularios conectados a APIs con React, Angular, Node.js y PostgreSQL.",
     support:
-      "Estoy desarrollando proyectos personales para consolidar mi perfil frontend con base full stack y busco mi primera oportunidad para aportar, aprender rápido y crecer dentro de un equipo de desarrollo.",
+      "Construyo proyectos personales para mejorar criterio de interfaz y trabajar cada entrega con enfoque de producto. Busco una primera oportunidad para aprender dentro de un equipo y aportar compromiso desde el día uno.",
     availability: "Buscando mi primera oportunidad como desarrollador web",
     techPills: ["React", "Angular", "Node.js", "PostgreSQL", "Perfil junior"],
     cta: {
