@@ -49,6 +49,7 @@ export function AboutSection() {
             ))}
           </div>
         </div>
+        <div className="rounded-2xl border border-(--border) bg-(--surface) p-6 shadow-sm"><h3 className="mb-5 text-sm font-semibold uppercase tracking-wide text-(--muted)">Trayectoria</h3><LearningTimeline /></div>
       </div>
     </SectionContainer>
   );

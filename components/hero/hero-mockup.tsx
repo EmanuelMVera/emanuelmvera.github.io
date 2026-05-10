@@ -24,6 +24,9 @@ export function HeroMockup() {
             priority
           />
         </div>
+        <div className="mt-4 space-y-2">
+          {["Transferencia +$850", "Suscripción -$15", "Compra -$42"].map((t) => <div key={t} className="rounded-lg border border-slate-800 bg-slate-900/70 px-3 py-2 text-xs text-slate-300">{t}</div>)}
+        </div>
       </div>
       <p className="absolute top-0 left-1/2 -translate-x-1/2 rounded-full border border-emerald-500/30 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">
         Buscando primera oportunidad
