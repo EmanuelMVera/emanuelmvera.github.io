@@ -2,14 +2,10 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ProjectTechChips } from "./project-tech-chips";
 import { ProjectLinks } from "./project-links";
+import { siteConfig } from "@/data/site";
 import type { Project, ProjectStatus } from "@/types/project";
 
-const statusLabels: Record<ProjectStatus, string> = {
-  live: "En vivo",
-  wip: "En progreso",
-  archived: "Archivado",
-  "coming-soon": "Próximamente",
-};
+const statusLabels = siteConfig.ui.projectStatusLabels as Record<ProjectStatus, string>;
 const statusColors: Record<ProjectStatus, "green" | "orange" | "default" | "blue"> = {
   live: "green",
   wip: "orange",
@@ -27,7 +23,7 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
           <div className="flex h-full items-center justify-center">
             <span className="rounded-full border border-slate-300 bg-white/90 px-3 py-1 text-xs font-medium text-slate-700 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300">
-              En construcción
+              {siteConfig.ui.projects.comingSoonLabel}
             </span>
           </div>
         </div>

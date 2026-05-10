@@ -4,14 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ProjectTechChips } from "./project-tech-chips";
 import { ProjectLinks } from "./project-links";
+import { siteConfig } from "@/data/site";
 import type { Project, ProjectStatus } from "@/types/project";
 
-const statusLabels: Record<ProjectStatus, string> = {
-  live: "En vivo",
-  wip: "En progreso",
-  archived: "Archivado",
-  "coming-soon": "Próximamente",
-};
+const statusLabels = siteConfig.ui.projectStatusLabels as Record<ProjectStatus, string>;
 const statusColors: Record<ProjectStatus, "green" | "orange" | "default" | "blue"> = {
   live: "green",
   wip: "orange",
@@ -19,16 +15,7 @@ const statusColors: Record<ProjectStatus, "green" | "orange" | "default" | "blue
   "coming-soon": "blue",
 };
 
-const imageMeta: Record<string, { src: string; alt: string }> = {
-  "app-clima": {
-    src: "/images/projects/app-clima/thumb.webp",
-    alt: "Vista promocional de la aplicación del clima Buen Tiempo",
-  },
-  "billetera-virtual": {
-    src: "/images/projects/billetera-virtual/thumb.webp",
-    alt: "Vista promocional de la aplicación Billetera Virtual",
-  },
-};
+const imageMeta = siteConfig.ui.projects.imageMeta as Record<string, { src: string; alt: string }>;
 
 export function FeaturedProjectCard({ project }: { project: Project }) {
   const image = imageMeta[project.slug];

@@ -1,4 +1,7 @@
 import { Chip } from "@/components/ui/chip";
+import { siteConfig } from "@/data/site";
+
+const coreSkills = new Set(siteConfig.ui.skills.coreSkills);
 
 const coreSkills = new Set(["React", "Angular", "TypeScript", "Node.js", "PostgreSQL"]);
 

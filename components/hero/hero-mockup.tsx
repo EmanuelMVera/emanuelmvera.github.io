@@ -1,14 +1,17 @@
 import Image from "next/image";
+import { siteConfig } from "@/data/site";
 
-const floatingBadges = [
-  { label: "React", pos: "left-0 top-10 lg:-left-10" },
-  { label: "Angular", pos: "right-0 top-8 lg:-right-10" },
-  { label: "Node.js", pos: "left-2 bottom-16 lg:-left-8" },
-  { label: "PostgreSQL", pos: "right-2 bottom-20 lg:-right-12" },
-  { label: "Perfil junior", pos: "left-1/2 -bottom-2 -translate-x-1/2" },
+const badgePositions = [
+  "left-0 top-10 lg:-left-10",
+  "right-0 top-8 lg:-right-10",
+  "left-2 bottom-16 lg:-left-8",
+  "right-2 bottom-20 lg:-right-12",
+  "left-1/2 -bottom-2 -translate-x-1/2",
 ];
 
 export function HeroMockup() {
+  const { hero } = siteConfig.ui;
+
   return (
     <div className="relative mx-auto w-full max-w-[380px] py-6 lg:max-w-[420px]">
       <div className="absolute inset-8 rounded-full bg-radial from-cyan-300/50 via-blue-300/35 to-transparent blur-3xl dark:from-cyan-500/25" />
@@ -16,7 +19,7 @@ export function HeroMockup() {
         <div className="rounded-[1.6rem] border border-cyan-300/50 bg-gradient-to-b from-sky-50 to-white p-4 dark:border-cyan-500/30 dark:from-slate-800 dark:to-slate-900">
           <Image
             src="/images/avatar/mifoto-avatar.png"
-            alt="Foto de perfil de Emanuel M. Vera"
+            alt={hero.avatarAlt}
             width={560}
             height={700}
             sizes="(max-width: 768px) 280px, 320px"
@@ -24,19 +27,16 @@ export function HeroMockup() {
             priority
           />
         </div>
-        <div className="mt-4 space-y-2">
-          {["Transferencia +$850", "Suscripción -$15", "Compra -$42"].map((t) => <div key={t} className="rounded-lg border border-slate-800 bg-slate-900/70 px-3 py-2 text-xs text-slate-300">{t}</div>)}
-        </div>
       </div>
       <p className="absolute top-0 left-1/2 -translate-x-1/2 rounded-full border border-emerald-500/30 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">
-        Buscando primera oportunidad
+        {hero.opportunityBadge}
       </p>
-      {floatingBadges.map((badge) => (
+      {hero.floatingBadges.map((badge, index) => (
         <span
-          key={badge.label}
-          className={`absolute ${badge.pos} rounded-full border border-(--border) bg-(--surface) px-3 py-1 text-xs font-medium text-(--text) shadow-md`}
+          key={badge}
+          className={`absolute ${badgePositions[index]} rounded-full border border-(--border) bg-(--surface) px-3 py-1 text-xs font-medium text-(--text) shadow-md`}
         >
-          {badge.label}
+          {badge}
         </span>
       ))}
     </div>

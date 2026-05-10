@@ -138,6 +138,49 @@ export const siteConfig = {
     available: "Disponible para oportunidades junior.",
   },
 
+  ui: {
+    projectStatusLabels: {
+      live: "En vivo",
+      wip: "En progreso",
+      archived: "Archivado",
+      "coming-soon": "Próximamente",
+    },
+    hero: {
+      floatingBadges: ["React", "Angular", "Node.js", "PostgreSQL", "Perfil junior"],
+      opportunityBadge: "Buscando primera oportunidad",
+      avatarAlt: "Foto de perfil de Emanuel M. Vera",
+    },
+    about: {
+      objectiveHighlight:
+        "Objetivo actual: conseguir mi primera oportunidad como desarrollador web junior.",
+      highlights: [
+        { title: "Frontend", detail: "React · Angular · TypeScript" },
+        { title: "Backend", detail: "Node.js · Express · PostgreSQL" },
+        { title: "Objetivo", detail: "Primera oportunidad junior" },
+      ],
+      timelineTitle: "Trayectoria",
+    },
+    skills: {
+      sectionSubtitle:
+        "Stack principal orientado a desarrollo web full stack con foco en frontend.",
+      groupDescription: "Base práctica orientada a proyectos web reales.",
+      coreSkills: ["React", "Angular", "TypeScript", "Node.js", "PostgreSQL"],
+    },
+    projects: {
+      imageMeta: {
+        "app-clima": {
+          src: "/images/projects/app-clima/thumb.webp",
+          alt: "Vista promocional de la aplicación del clima Buen Tiempo",
+        },
+        "billetera-virtual": {
+          src: "/images/projects/billetera-virtual/thumb.webp",
+          alt: "Vista promocional de la aplicación Billetera Virtual",
+        },
+      },
+      comingSoonLabel: "En construcción",
+    },
+  },
+
   meta: {
     defaultTitle: `${NOMBRE_COMPLETO} | ${TITULO_PROFESIONAL}`,
     titleTemplate: `%s | ${NOMBRE_COMPLETO}`,
