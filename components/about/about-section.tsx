@@ -3,6 +3,12 @@ import { SectionHeading } from "@/components/layout/section-heading";
 import { siteConfig } from "@/data/site";
 import { LearningTimeline } from "./learning-timeline";
 
+const highlights = [
+  { title: "Frontend", detail: "React · Angular · TypeScript" },
+  { title: "Backend", detail: "Node.js · Express · PostgreSQL" },
+  { title: "Objetivo", detail: "Primera oportunidad junior" },
+];
+
 export function AboutSection() {
   const { about } = siteConfig;
   const aboutUi = siteConfig.ui.about;
@@ -45,6 +51,7 @@ export function AboutSection() {
             ))}
           </div>
         </div>
+        <div className="rounded-2xl border border-(--border) bg-(--surface) p-6 shadow-sm"><h3 className="mb-5 text-sm font-semibold uppercase tracking-wide text-(--muted)">Trayectoria</h3><LearningTimeline /></div>
       </div>
     </SectionContainer>
   );
