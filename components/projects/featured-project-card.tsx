@@ -4,21 +4,11 @@ import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ProjectTechChips } from "./project-tech-chips";
 import { ProjectLinks } from "./project-links";
-import { siteConfig } from "@/data/site";
-import type { Project, ProjectStatus } from "@/types/project";
-
-const statusLabels = siteConfig.ui.projectStatusLabels as Record<ProjectStatus, string>;
-const statusColors: Record<ProjectStatus, "green" | "orange" | "default" | "blue"> = {
-  live: "green",
-  wip: "orange",
-  archived: "default",
-  "coming-soon": "blue",
-};
-
-const imageMeta = siteConfig.ui.projects.imageMeta as Record<string, { src: string; alt: string }>;
+import { projectImageMeta, projectStatusColors, projectStatusLabels } from "@/lib/project-ui";
+import type { Project } from "@/types/project";
 
 export function FeaturedProjectCard({ project }: { project: Project }) {
-  const image = imageMeta[project.slug];
+  const image = projectImageMeta[project.slug];
   return (
     <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
       <div className="relative aspect-[16/9] w-full overflow-hidden">
@@ -34,7 +24,9 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
           <div className="h-full w-full bg-slate-100 dark:bg-slate-800" />
         )}
         <div className="absolute top-4 right-4">
-          <Badge color={statusColors[project.status]}>{statusLabels[project.status]}</Badge>
+          <Badge color={projectStatusColors[project.status]}>
+            {projectStatusLabels[project.status]}
+          </Badge>
         </div>
       </div>
       <div className="p-6">

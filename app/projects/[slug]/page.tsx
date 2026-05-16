@@ -9,25 +9,12 @@ import { ProjectGallery } from "@/components/projects/project-gallery";
 import { SectionContainer } from "@/components/layout/section-container";
 import { Badge } from "@/components/ui/badge";
 import { siteConfig } from "@/data/site";
-import type { ProjectStatus } from "@/types/project";
+import { projectStatusColors, projectStatusLabels } from "@/lib/project-ui";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
-
-const statusLabels: Record<ProjectStatus, string> = {
-  live: "En vivo",
-  wip: "En progreso",
-  archived: "Archivado",
-  "coming-soon": "Próximamente",
-};
-const statusColors: Record<ProjectStatus, "green" | "orange" | "default" | "blue"> = {
-  live: "green",
-  wip: "orange",
-  archived: "default",
-  "coming-soon": "blue",
-};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -54,7 +41,6 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <SectionContainer as="article" className="py-16">
-      {/* Navegación de regreso */}
       <Link
         href="/projects"
         className="mb-8 inline-flex items-center gap-2 text-sm text-(--muted) transition-colors hover:text-(--text)"
@@ -63,12 +49,11 @@ export default async function ProjectPage({ params }: Props) {
         Volver a proyectos
       </Link>
 
-      {/* Header del proyecto */}
       <header className="mb-10 space-y-4">
         <div className="flex items-start gap-3">
           <h1 className="text-4xl font-bold tracking-tight text-(--text)">{project.title}</h1>
-          <Badge color={statusColors[project.status]} className="mt-2 shrink-0">
-            {statusLabels[project.status]}
+          <Badge color={projectStatusColors[project.status]} className="mt-2 shrink-0">
+            {projectStatusLabels[project.status]}
           </Badge>
         </div>
         {project.subtitle && (
@@ -80,14 +65,12 @@ export default async function ProjectPage({ params }: Props) {
         <ProjectLinks demoUrl={project.demoUrl} repoUrl={project.repoUrl} />
       </header>
 
-      {/* Galería */}
       {project.gallery && project.gallery.length > 0 && (
         <div className="mb-10">
           <ProjectGallery images={project.gallery} projectTitle={project.title} />
         </div>
       )}
 
-      {/* Contenido MDX */}
       {project.content && (
         <div className="prose prose-slate dark:prose-invert max-w-none">
           <MDXRemote source={project.content} />
