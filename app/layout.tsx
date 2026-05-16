@@ -1,61 +1,21 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { portfolio } from "@/data/portfolio";
 import "./globals.css";
-import { ThemeScript } from "@/components/theme/theme-script";
-import { AppProviders } from "@/providers/app-providers";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { SkipLink } from "@/components/layout/skip-link";
-import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
-  title: {
-    default: siteConfig.meta.defaultTitle,
-    template: siteConfig.meta.titleTemplate,
-  },
-  description: siteConfig.meta.description,
-  openGraph: {
-    type: "website",
-    locale: "es_AR",
-    url: siteConfig.siteUrl,
-    title: siteConfig.meta.defaultTitle,
-    description: siteConfig.meta.description,
-    siteName: siteConfig.fullName,
-    images: [{ url: siteConfig.socialOgImage, width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.meta.defaultTitle,
-    description: siteConfig.meta.description,
-    images: [siteConfig.socialOgImage],
-  },
-  robots: { index: true, follow: true },
-};
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f8fa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
-  ],
+  title: `${portfolio.name} | ${portfolio.role}`,
+  description: portfolio.hero.subtitle,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // suppressHydrationWarning evita warnings de React cuando ThemeScript
-    // agrega la clase "dark" al <html> antes de la hidratación.
-    <html lang="es" suppressHydrationWarning>
-      <head>
-        <ThemeScript />
-      </head>
-      <body className="bg-(--bg) font-sans text-(--text) antialiased">
-        <AppProviders>
-          <SkipLink />
-          <Header />
-          <main id="main-content" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
-        </AppProviders>
+    <html lang="es">
+      <body className="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-white">
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
