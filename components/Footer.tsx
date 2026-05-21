@@ -1,3 +1,6 @@
+import { Mail } from "lucide-react";
+import { portfolio } from "@/data/portfolio";
+
 export function Footer() {
   return (
     <footer className="bg-[#0B1120] text-white">
@@ -10,7 +13,7 @@ export function Footer() {
               </div>
               <div>
                 <p className="font-semibold text-white">Emanuel M. Vera</p>
-                <p className="text-xs text-blue-400">Desarrollador Web Junior</p>
+                <p className="text-xs text-blue-400">Desarrollador Web</p>
               </div>
             </div>
           </div>
@@ -32,7 +35,7 @@ export function Footer() {
 
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com/emanuelmvera"
+              href={portfolio.links.github}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
@@ -50,7 +53,7 @@ export function Footer() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/emanuelmvera"
+              href={portfolio.links.linkedin}
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
@@ -68,25 +71,11 @@ export function Footer() {
               </svg>
             </a>
             <a
-              href="mailto:cedarzzz@gmail.com"
+              href={`mailto:${portfolio.email}`}
               aria-label="Email"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all hover:border-slate-500 hover:text-white"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
+              <Mail size={16} aria-hidden="true" />
             </a>
           </div>
         </div>

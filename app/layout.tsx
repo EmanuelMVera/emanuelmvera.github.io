@@ -5,13 +5,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://emanuelmvera.github.io"),
-  title: "Emanuel M. Vera | Desarrollador Web Junior",
+  title: "Emanuel M. Vera | Desarrollador Web",
   description:
-    "Portfolio personal de Emanuel M. Vera, desarrollador web junior con proyectos en React, Angular, Node.js y PostgreSQL.",
+    "Portfolio personal de Emanuel M. Vera, desarrollador web con proyectos en React, Angular, Node.js y PostgreSQL.",
   openGraph: {
-    title: "Emanuel M. Vera | Desarrollador Web Junior",
+    title: "Emanuel M. Vera | Desarrollador Web",
     description:
-      "Portfolio personal de Emanuel M. Vera, desarrollador web junior con proyectos en React, Angular, Node.js y PostgreSQL.",
+      "Portfolio personal de Emanuel M. Vera, desarrollador web con proyectos en React, Angular, Node.js y PostgreSQL.",
     images: ["/images/og/placeholder-og.png"],
   },
 };

@@ -1,4 +1,37 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { Download } from "lucide-react";
+
+const SECTIONS = ["proyectos", "sobre-mi", "skills", "contacto"] as const;
+type SectionId = (typeof SECTIONS)[number];
+
+const NAV_LINKS: { id: SectionId; label: string }[] = [
+  { id: "proyectos", label: "Proyectos" },
+  { id: "sobre-mi", label: "Sobre mí" },
+  { id: "skills", label: "Skills" },
+  { id: "contacto", label: "Contacto" },
+];
+
 export function Header() {
+  const [active, setActive] = useState<SectionId | "">("");
+
+  useEffect(() => {
+    const observers = SECTIONS.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActive(id);
+        },
+        { rootMargin: "-80px 0px -50% 0px", threshold: 0 },
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((o) => o?.disconnect());
+  }, []);
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
@@ -10,42 +43,26 @@ export function Header() {
         </a>
 
         <div className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
-          <a href="#proyectos" className="transition-colors hover:text-blue-600">
-            Proyectos
-          </a>
-          <a href="#sobre-mi" className="transition-colors hover:text-blue-600">
-            Sobre mí
-          </a>
-          <a href="#skills" className="transition-colors hover:text-blue-600">
-            Skills
-          </a>
-          <a href="#contacto" className="transition-colors hover:text-blue-600">
-            Contacto
-          </a>
+          {NAV_LINKS.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={`transition-colors hover:text-blue-600 ${
+                active === id ? "font-semibold text-blue-600" : ""
+              }`}
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
         <a
           href="/cv/cv-emanuelmvera.pdf"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md"
+          className="hidden items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md md:flex"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
+          <Download size={14} aria-hidden="true" />
           Descargar CV
         </a>
       </nav>

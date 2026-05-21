@@ -1,3 +1,4 @@
+import { Mail, Send } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 
 export function Contact() {
@@ -13,8 +14,11 @@ export function Contact() {
             </div>
 
             <p className="leading-relaxed text-slate-600">
-              ¿Tenés una oportunidad o proyecto en mente? Hablemos. Estoy abierto a nuevas
-              oportunidades.
+              ¿Tenés un proyecto en mente y querés una solución web clara y funcional? Hablemos.
+            </p>
+            <p className="mt-2 leading-relaxed text-slate-500">
+              Puedo ayudarte a convertir una idea en una interfaz bien pensada, responsive y fácil
+              de usar.
             </p>
 
             <div className="mt-8 space-y-4">
@@ -23,21 +27,7 @@ export function Contact() {
                 className="flex items-center gap-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
               >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#2563EB"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
+                  <Mail size={16} className="text-blue-600" aria-hidden="true" />
                 </div>
                 {portfolio.email}
               </a>
@@ -156,24 +146,10 @@ export function Contact() {
             <div className="flex justify-end">
               <button
                 type="submit"
-                className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg"
+                className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:scale-[1.02] hover:bg-blue-700 hover:shadow-lg active:scale-95"
               >
                 Enviar mensaje
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="22" y1="2" x2="11" y2="13" />
-                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
+                <Send size={16} aria-hidden="true" />
               </button>
             </div>
           </form>

@@ -1,6 +1,6 @@
 export const portfolio = {
   name: "Emanuel M. Vera",
-  role: "Desarrollador Web Junior",
+  role: "Desarrollador Web",
   email: "emanuel_vera@live.com.ar",
   location: "Guernica, Argentina",
   cvUrl: "/cv/cv-emanuelmvera.pdf",
@@ -9,18 +9,20 @@ export const portfolio = {
     linkedin: "https://linkedin.com/in/emanuelmvera",
   },
   hero: {
-    badge: "Buscando primera oportunidad",
+    badge: "Interfaces claras y soluciones web",
     firstName: "Emanuel",
     lastName: "M. Vera",
-    role: "Desarrollador Web Junior",
+    role: "Desarrollador Web",
     description:
-      "Me apasiona construir interfaces modernas, aplicaciones web funcionales y experiencias digitales claras. Siempre aprendiendo, siempre mejorando.",
+      "Construyo interfaces modernas, dashboards y aplicaciones web responsive, priorizando claridad visual, código mantenible y una experiencia de usuario sólida.",
+    stackLabel: "Interfaces · APIs · Sistemas web",
     techChips: ["React", "Angular", "Node.js", "PostgreSQL"],
   },
   about: {
     paragraphs: [
-      "Soy desarrollador web junior con formación en Análisis de Sistemas y muchas ganas de crecer profesionalmente. Disfruto transformar ideas en productos digitales útiles, escribiendo código limpio y pensando en la experiencia del usuario.",
-      "Me considero una persona proactiva, curiosa y comprometida a aprender y aportar valor en equipo.",
+      "Soy desarrollador web con formación en Análisis de Sistemas y foco en construir interfaces claras, aplicaciones responsive y soluciones conectadas a APIs.",
+      "Actualmente desarrollo proyectos personales y académicos para fortalecer mi criterio técnico, mejorar mi forma de trabajar y resolver problemas reales.",
+      "Me interesa aportar valor con código mantenible, buena comunicación y una mirada práctica sobre la experiencia del usuario.",
     ],
     highlights: [
       { icon: "target", label: "Enfoque", value: "Desarrollo frontend y fullstack" },
@@ -64,21 +66,26 @@ export const portfolio = {
       icon: "concepts",
       items: ["Roles y permisos", "Sistemas de gestión", "Autenticación", "Arquitectura full stack"],
     },
+    {
+      category: "IA aplicada al desarrollo",
+      icon: "ai",
+      items: ["Claude Code", "Cursor", "GitHub Copilot", "Prompting técnico"],
+    },
   ],
   projects: [
     {
       title: "App del clima",
       description:
-        "Consulta del clima actual y pronóstico responsive con una experiencia moderna.",
+        "Consulta clima actual, pronóstico por horas y próximos días usando APIs externas, con foco en responsive design y experiencia visual.",
       image: "/images/projects/app-clima/thumb.webp",
-      chips: ["React", "API", "Responsive"],
+      chips: ["React", "API externa", "Responsive"],
       repo: "https://github.com/EmanuelMVera/WeatherProject",
       link: "weather-project-psi-ten.vercel.app",
     },
     {
       title: "Billetera virtual",
       description:
-        "Aplicación fintech con dashboard, transferencias y gestión de movimientos en tiempo real.",
+        "Aplicación tipo fintech con autenticación, dashboard financiero, transferencias y gestión de movimientos.",
       image: "/images/projects/billetera-virtual/thumb.webp",
       chips: ["React", "Node.js", "PostgreSQL"],
       repo: "https://github.com/EmanuelMVera/virtual-wallet",
