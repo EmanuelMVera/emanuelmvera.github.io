@@ -2,7 +2,7 @@ import { portfolio } from "@/data/portfolio";
 
 export function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-7xl px-6 py-16">
+    <section id="contacto" className="mx-auto max-w-7xl scroll-mt-20 px-6 py-16">
       <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
         <div className="grid gap-12 md:grid-cols-2">
           {/* Left: contact info */}
@@ -22,7 +22,7 @@ export function Contact() {
                 href={`mailto:${portfolio.email}`}
                 className="flex items-center gap-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
               >
-                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-blue-50">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -48,7 +48,7 @@ export function Contact() {
                 rel="noreferrer"
                 className="flex items-center gap-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
               >
-                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-slate-50">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -69,7 +69,7 @@ export function Contact() {
                 rel="noreferrer"
                 className="flex items-center gap-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
               >
-                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-blue-50">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

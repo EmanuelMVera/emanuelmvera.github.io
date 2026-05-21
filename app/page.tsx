@@ -9,11 +9,11 @@ export default function Page() {
     <>
       <Hero />
       <Projects />
-      <section id="about" className="py-16">
+      <section id="sobre-mi" className="scroll-mt-20 py-16">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-2">
             <About />
-            <div id="skills">
+            <div id="skills" className="scroll-mt-20">
               <Skills />
             </div>
           </div>

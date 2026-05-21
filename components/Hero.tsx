@@ -12,7 +12,7 @@ export function Hero() {
   const { hero, cvUrl } = portfolio;
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+    <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
       <div className="flex flex-col items-center gap-10 md:flex-row md:items-center md:gap-8 lg:gap-16">
         {/* Left: text */}
         <div className="flex-1 text-center md:text-left">
@@ -37,7 +37,7 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
             <a
-              href="#projects"
+              href="#proyectos"
               className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg"
             >
               <svg
@@ -101,7 +101,7 @@ export function Hero() {
         </div>
 
         {/* Right: avatar — simple on mobile, with floating badges on desktop */}
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           {/* Mobile */}
           <div className="relative mx-auto md:hidden" style={{ width: "220px", height: "220px" }}>
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-200/60 to-cyan-100/40 blur-2xl" />

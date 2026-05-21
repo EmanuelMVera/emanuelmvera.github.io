@@ -1,7 +1,7 @@
 export const portfolio = {
   name: "Emanuel M. Vera",
   role: "Desarrollador Web Junior",
-  email: "emanuel_vera@live.com.ar",
+  email: "cedarzzz@gmail.com",
   location: "Guernica, Argentina",
   cvUrl: "/cv/cv-emanuelmvera.pdf",
   links: {
@@ -42,12 +42,27 @@ export const portfolio = {
     {
       category: "Bases de datos",
       icon: "database",
-      items: ["PostgreSQL", "SQL", "Prisma"],
+      items: ["PostgreSQL", "SQL", "Sequelize"],
+    },
+    {
+      category: "Tiempo real y bots",
+      icon: "realtime",
+      items: ["Socket.IO", "Telegraf", "Telegram Bots", "Realtime apps"],
+    },
+    {
+      category: "Game dev",
+      icon: "gamedev",
+      items: ["Godot", "Pixel Art básico", "Cliente-servidor"],
     },
     {
       category: "Herramientas",
       icon: "tools",
-      items: ["Git & GitHub", "VS Code", "Figma", "Postman"],
+      items: ["Git & GitHub", "VS Code", "Postman"],
+    },
+    {
+      category: "Conceptos",
+      icon: "concepts",
+      items: ["Roles y permisos", "Sistemas de gestión", "Autenticación", "Arquitectura full stack"],
     },
   ],
   projects: [
@@ -57,8 +72,8 @@ export const portfolio = {
         "Consulta del clima actual y pronóstico responsive con una experiencia moderna.",
       image: "/images/projects/app-clima/thumb.webp",
       chips: ["React", "API", "Responsive"],
-      repo: "https://github.com/emanuelmvera",
-      link: "#",
+      repo: "https://github.com/EmanuelMVera/WeatherProject",
+      link: "weather-project-psi-ten.vercel.app",
     },
     {
       title: "Billetera virtual",
@@ -66,18 +81,34 @@ export const portfolio = {
         "Aplicación fintech con dashboard, transferencias y gestión de movimientos en tiempo real.",
       image: "/images/projects/billetera-virtual/thumb.webp",
       chips: ["React", "Node.js", "PostgreSQL"],
-      repo: "https://github.com/emanuelmvera",
+      repo: "https://github.com/EmanuelMVera/virtual-wallet",
       link: "#",
     },
   ],
   wip: [
     {
-      title: "TaskFlow",
-      description: "Gestor de tareas colaborativo con tableros y equipos.",
+      title: "Sistema de Gestión de Pasantías",
+      description:
+        "Plataforma académica para conectar estudiantes con empresas mediante ofertas trainee, junior y pasantías avaladas por el instituto.",
+      badge: "Tesis final",
+      badgeVariant: "violet",
+      chips: ["React", "Node.js", "PostgreSQL", "Roles"],
     },
     {
-      title: "DevBlog",
-      description: "Blog personal para compartir artículos y experiencias.",
+      title: "Arena Brawler Bot",
+      description:
+        "Juego multijugador 2D estilo arena brawler con cliente en Godot y backend en Node.js, TypeScript, Telegraf y Socket.IO.",
+      badge: "En desarrollo",
+      badgeVariant: "blue",
+      chips: ["Godot", "TypeScript", "Socket.IO", "Telegraf"],
+    },
+    {
+      title: "Sistema Veterinario",
+      description:
+        "Sistema para gestionar turnos, historias clínicas y seguimiento de tratamientos entre veterinarios, propietarios y mascotas.",
+      badge: "Próximamente",
+      badgeVariant: "slate",
+      chips: ["Angular", "Node.js", "PostgreSQL", "Gestión"],
     },
   ],
 };

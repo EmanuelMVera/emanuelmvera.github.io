@@ -5,7 +5,7 @@ export function Footer() {
         <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between">
           <div className="flex flex-col items-center gap-2 md:items-start">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
                 EV
               </div>
               <div>
@@ -16,16 +16,16 @@ export function Footer() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400 md:justify-end">
-            <a href="#projects" className="transition-colors hover:text-white">
+            <a href="#proyectos" className="transition-colors hover:text-white">
               Proyectos
             </a>
-            <a href="#about" className="transition-colors hover:text-white">
+            <a href="#sobre-mi" className="transition-colors hover:text-white">
               Sobre mí
             </a>
             <a href="#skills" className="transition-colors hover:text-white">
               Skills
             </a>
-            <a href="#contact" className="transition-colors hover:text-white">
+            <a href="#contacto" className="transition-colors hover:text-white">
               Contacto
             </a>
           </div>

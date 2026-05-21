@@ -3,23 +3,23 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <a href="#" className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white shadow-sm">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white shadow-sm">
             EV
           </div>
           <span className="font-semibold text-slate-900">Emanuel M. Vera</span>
         </a>
 
         <div className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
-          <a href="#projects" className="transition-colors hover:text-blue-600">
+          <a href="#proyectos" className="transition-colors hover:text-blue-600">
             Proyectos
           </a>
-          <a href="#about" className="transition-colors hover:text-blue-600">
+          <a href="#sobre-mi" className="transition-colors hover:text-blue-600">
             Sobre mí
           </a>
           <a href="#skills" className="transition-colors hover:text-blue-600">
             Skills
           </a>
-          <a href="#contact" className="transition-colors hover:text-blue-600">
+          <a href="#contacto" className="transition-colors hover:text-blue-600">
             Contacto
           </a>
         </div>
