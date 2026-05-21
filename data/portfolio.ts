@@ -1,7 +1,7 @@
 export const portfolio = {
   name: "Emanuel M. Vera",
   role: "Desarrollador Web Junior",
-  email: "cedarzzz@gmail.com",
+  email: "emanuel_vera@live.com.ar",
   location: "Guernica, Argentina",
   cvUrl: "/cv/cv-emanuelmvera.pdf",
   links: {
