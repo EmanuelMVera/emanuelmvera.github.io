@@ -1,7 +1,7 @@
 export const portfolio = {
   name: "Emanuel M. Vera",
   role: "Desarrollador Web Junior",
-  email: "{{EMAIL}}",
+  email: "emanuel_vera@live.com.ar",
   location: "Guernica, Argentina",
   cvUrl: "/cv/cv-emanuelmvera.pdf",
   links: {
@@ -9,32 +9,75 @@ export const portfolio = {
     linkedin: "https://linkedin.com/in/emanuelmvera",
   },
   hero: {
-    title: "Hola, soy Emanuel",
-    subtitle:
-      "Construyo interfaces claras y aplicaciones web con foco en experiencia de usuario y código mantenible.",
+    badge: "Buscando primera oportunidad",
+    firstName: "Emanuel",
+    lastName: "M. Vera",
+    role: "Desarrollador Web Junior",
+    description:
+      "Me apasiona construir interfaces modernas, aplicaciones web funcionales y experiencias digitales claras. Siempre aprendiendo, siempre mejorando.",
+    techChips: ["React", "Angular", "Node.js", "PostgreSQL"],
   },
-  about:
-    "Soy desarrollador web junior. Estoy enfocado en conseguir mi primera experiencia profesional, seguir aprendiendo y aportar valor real a un equipo.",
-  skills: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Node.js",
-    "PostgreSQL",
+  about: {
+    paragraphs: [
+      "Soy desarrollador web junior con formación en Análisis de Sistemas y muchas ganas de crecer profesionalmente. Disfruto transformar ideas en productos digitales útiles, escribiendo código limpio y pensando en la experiencia del usuario.",
+      "Me considero una persona proactiva, curiosa y comprometida a aprender y aportar valor en equipo.",
+    ],
+    highlights: [
+      { icon: "target", label: "Enfoque", value: "Desarrollo frontend y fullstack" },
+      { icon: "book", label: "Formación", value: "Aprendizaje continuo y autodidacta" },
+      { icon: "lightning", label: "Disponibilidad", value: "Proyectos personales reales" },
+    ],
+  },
+  skillCategories: [
+    {
+      category: "Frontend",
+      icon: "frontend",
+      items: ["React", "Angular", "Tailwind CSS", "TypeScript"],
+    },
+    {
+      category: "Backend",
+      icon: "backend",
+      items: ["Node.js", "Express.js", "REST APIs"],
+    },
+    {
+      category: "Bases de datos",
+      icon: "database",
+      items: ["PostgreSQL", "SQL", "Prisma"],
+    },
+    {
+      category: "Herramientas",
+      icon: "tools",
+      items: ["Git & GitHub", "VS Code", "Figma", "Postman"],
+    },
   ],
   projects: [
     {
-      title: "App Clima",
-      description: "Aplicación para consultar el clima con interfaz clara y responsive.",
+      title: "App del clima",
+      description:
+        "Consulta del clima actual y pronóstico responsive con una experiencia moderna.",
       image: "/images/projects/app-clima/thumb.webp",
+      chips: ["React", "API", "Responsive"],
       repo: "https://github.com/emanuelmvera",
+      link: "#",
     },
     {
-      title: "Billetera Virtual",
-      description: "UI de billetera digital con paneles, métricas y movimientos.",
+      title: "Billetera virtual",
+      description:
+        "Aplicación fintech con dashboard, transferencias y gestión de movimientos en tiempo real.",
       image: "/images/projects/billetera-virtual/thumb.webp",
+      chips: ["React", "Node.js", "PostgreSQL"],
       repo: "https://github.com/emanuelmvera",
+      link: "#",
+    },
+  ],
+  wip: [
+    {
+      title: "TaskFlow",
+      description: "Gestor de tareas colaborativo con tableros y equipos.",
+    },
+    {
+      title: "DevBlog",
+      description: "Blog personal para compartir artículos y experiencias.",
     },
   ],
 };

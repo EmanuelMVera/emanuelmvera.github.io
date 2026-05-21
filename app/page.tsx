@@ -9,8 +9,16 @@ export default function Page() {
     <>
       <Hero />
       <Projects />
-      <About />
-      <Skills />
+      <section id="about" className="py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-2">
+            <About />
+            <div id="skills">
+              <Skills />
+            </div>
+          </div>
+        </div>
+      </section>
       <Contact />
     </>
   );

@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { portfolio } from "@/data/portfolio";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `${portfolio.name} | ${portfolio.role}`,
-  description: portfolio.hero.subtitle,
+  metadataBase: new URL("https://emanuelmvera.github.io"),
+  title: "Emanuel M. Vera | Desarrollador Web Junior",
+  description:
+    "Portfolio personal de Emanuel M. Vera, desarrollador web junior con proyectos en React, Angular, Node.js y PostgreSQL.",
+  openGraph: {
+    title: "Emanuel M. Vera | Desarrollador Web Junior",
+    description:
+      "Portfolio personal de Emanuel M. Vera, desarrollador web junior con proyectos en React, Angular, Node.js y PostgreSQL.",
+    images: ["/images/og/placeholder-og.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-white">
+      <body className="antialiased">
         <Header />
         <main>{children}</main>
         <Footer />
