@@ -80,7 +80,7 @@ export const portfolio = {
       image: "/images/projects/app-clima/thumb.webp",
       chips: ["React", "API externa", "Responsive"],
       repo: "https://github.com/EmanuelMVera/WeatherProject",
-      link: "weather-project-psi-ten.vercel.app",
+      link: "https://weather-project-psi-ten.vercel.app/",
     },
     {
       title: "Billetera virtual",
@@ -89,7 +89,7 @@ export const portfolio = {
       image: "/images/projects/billetera-virtual/thumb.webp",
       chips: ["React", "Node.js", "PostgreSQL"],
       repo: "https://github.com/EmanuelMVera/virtual-wallet",
-      link: "#",
+      link: "https://virtual-wallet-iota.vercel.app/",
     },
   ],
   wip: [
