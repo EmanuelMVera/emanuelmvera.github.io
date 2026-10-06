@@ -1,16 +1,29 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { SITE_URL } from "@/data/site";
 import "./globals.css";
 
-const title = "Emanuel M. Vera | Desarrollador Full Stack";
+const title = "Emanuel M. Vera | Analista de Sistemas y Desarrollador Full Stack";
 const description =
-  "Portfolio de Emanuel M. Vera, desarrollador full stack con proyectos en React, Node.js, PostgreSQL, APIs, testing y sistemas web.";
+  "Portfolio de Emanuel M. Vera. Analista de Sistemas y desarrollador Full Stack con experiencia en React, Node.js, PostgreSQL, testing, seguridad y desarrollo de aplicaciones web completas.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://emanuelmvera.github.io"),
+  metadataBase: new URL(SITE_URL),
   title,
   description,
+  keywords: [
+    "Emanuel Vera",
+    "Analista de Sistemas",
+    "Full Stack Developer",
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "Testing",
+    "Software Development",
+    "Argentina",
+  ],
+  authors: [{ name: "Emanuel M. Vera" }],
   alternates: { canonical: "/" },
   icons: {
     icon: [
@@ -31,7 +44,7 @@ export const metadata: Metadata = {
         url: "/images/og/portfolio-og.png",
         width: 1200,
         height: 630,
-        alt: "Emanuel M. Vera — Desarrollador Full Stack. Proyecto destacado: SisPasantías",
+        alt: "Emanuel M. Vera — Analista de Sistemas y Desarrollador Full Stack. Proyecto destacado: SisPasantías",
       },
     ],
   },
