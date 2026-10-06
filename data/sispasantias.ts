@@ -1,10 +1,11 @@
 // Contenido del caso de estudio. Cada afirmación está respaldada por el repo
-// EmanuelMVera/pasantias (código, docs/ROLES-Y-PERMISOS.md, docs/DEPLOYMENT.md, CI).
+// EmanuelMVera/pasantias (código, docs/ROLES-Y-PERMISOS.md, docs/DEPLOYMENT.md, CI)
+// y por el documento funcional del equipo (public/docs).
 
 export const sispasantias = {
   title: "SisPasantías",
   subtitle: "Portal institucional de empleo y pasantías",
-  context: "Proyecto final académico · Full Stack",
+  context: "Proyecto final académico en equipo · Full Stack",
   summary:
     "Bolsa de empleo y pasantías para un instituto terciario: conecta alumnos y egresados con empresas, mientras el instituto aprueba a quién participa, modera lo que se publica y audita cada acción relevante.",
   demo: "https://sispasantias.vercel.app",
@@ -15,6 +16,40 @@ export const sispasantias = {
     mobile: "/images/projects/sispasantias/mobile.webp",
   },
   stack: ["React", "Node.js", "Express", "PostgreSQL", "Sequelize", "Jest", "Playwright"],
+
+  analysis: {
+    intro:
+      "El proyecto no empezó programando. Antes de escribir código se relevó el problema, se definieron requerimientos y se modeló la solución; el desarrollo vino después y se validó con tests.",
+    steps: [
+      { title: "Relevamiento", detail: "Identificación del problema, actores y necesidades del sistema." },
+      { title: "Requerimientos", detail: "Definición de requerimientos funcionales y no funcionales." },
+      { title: "Modelado", detail: "Casos de uso, diagramas, modelo de datos, riesgos y arquitectura." },
+      { title: "Desarrollo", detail: "Implementación progresiva de frontend, backend y reglas de negocio." },
+      { title: "Testing", detail: "Pruebas de backend, integración, E2E y validación de flujos por rol." },
+      { title: "Despliegue", detail: "Publicación del frontend, backend, base de datos, archivos y servicios externos." },
+    ],
+  },
+
+  documentation: {
+    url: "/docs/sispasantias-documento-funcional.pdf",
+    size: "PDF · 31 páginas · 3 MB",
+    artifacts: [
+      "Requerimientos funcionales y no funcionales",
+      "Perfiles de usuario",
+      "Casos de uso",
+      "Diagrama de clases",
+      "DER",
+      "Gantt",
+      "FODA",
+      "Matriz de riesgo y mapa de calor",
+      "Diagramas de despliegue, componentes y secuencia",
+      "Diseño de interfaces",
+    ],
+    summary:
+      "El proyecto cuenta con documentación funcional y técnica desarrollada en equipo durante su etapa de análisis y diseño.",
+    evolution:
+      "El sistema evolucionó considerablemente respecto de la propuesta inicial. Durante el desarrollo se incorporaron nuevas reglas de negocio, roles internos de empresa, moderación, auditoría, chat, notificaciones, seguridad avanzada, testing automatizado y una arquitectura de despliegue más completa.",
+  },
 
   problem: [
     "Alumnos y egresados necesitan un lugar confiable donde acceder a sus primeras oportunidades laborales y pasantías.",
@@ -75,8 +110,10 @@ export const sispasantias = {
     ],
   },
 
+  securityIntro:
+    "La seguridad se resolvió en el backend, que es la autoridad: el frontend guía al usuario pero no decide permisos.",
   security: [
-    { title: "JWT en cookie HttpOnly", detail: "Sesión fuera del alcance de JavaScript y revocable por versión de token." },
+    { title: "JWT en cookie HttpOnly", detail: "Sesión fuera del alcance de JavaScript, con control de sesiones y revocación por versión de token." },
     { title: "Protección CSRF", detail: "Patrón double-submit: cookie y header deben coincidir." },
     { title: "RBAC en dos niveles", detail: "Rol global (admin, alumno, egresado, empresa) + rol interno de empresa." },
     { title: "Helmet, CSP y CORS", detail: "Cabeceras estrictas y lista blanca de orígenes, sin comodines." },
@@ -90,7 +127,7 @@ export const sispasantias = {
   quality: {
     tools: ["Jest", "Supertest", "Playwright", "ESLint", "OpenAPI", "GitHub Actions"],
     points: [
-      "Suite de tests de backend con Jest y Supertest sobre la API y sus reglas de negocio.",
+      "Tests de backend con Jest y Supertest sobre la API y sus reglas de negocio.",
       "Tests E2E con Playwright para los flujos de cada rol, sesión, notificaciones y vistas responsive.",
       "CI que aplica migraciones, verifica que sean reversibles, detecta desvíos del esquema, corre los tests y valida lint y build.",
       "API documentada con OpenAPI; el CI controla que la especificación esté actualizada.",
@@ -106,17 +143,23 @@ export const sispasantias = {
   ],
 
   participation: {
-    intro:
-      "Proyecto académico desarrollado en equipo (cuatro integrantes) para Prácticas Profesionalizantes III. En la propuesta original mi rol fue backend y arquitectura.",
+    intro: "Proyecto académico desarrollado en equipo por cuatro integrantes para Prácticas Profesionalizantes III.",
+    initialRole: "Backend y arquitectura.",
     body:
-      "Durante el desarrollo fui el principal contribuidor del código del repositorio y participé en la evolución técnica de toda la plataforma:",
+      "Durante la evolución del proyecto fui uno de los principales contribuidores técnicos del repositorio y participé en distintas áreas del sistema:",
     areas: [
-      "Backend: API REST, reglas de negocio y permisos por rol",
-      "Frontend: pantallas por rol y refinamiento de la experiencia de usuario",
-      "Base de datos: modelo, migraciones y consistencia de datos",
-      "Seguridad de sesión, archivos privados y auditoría",
+      "Backend y APIs REST",
+      "Reglas de negocio",
+      "Roles y permisos",
+      "Modelado y migraciones de base de datos",
+      "Seguridad de sesión",
+      "Archivos privados",
+      "Auditoría",
+      "Frontend por roles",
       "Testing con Jest, Supertest y Playwright",
-      "CI con GitHub Actions y despliegue multi-servicio",
+      "CI/CD con GitHub Actions",
+      "Despliegue multi-servicio",
+      "Refinamiento de la experiencia de usuario",
     ],
   },
 

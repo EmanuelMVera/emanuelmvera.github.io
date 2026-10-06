@@ -10,6 +10,7 @@ import {
   Cloud,
   Database,
   ExternalLink,
+  FileText,
   GitBranch,
   GraduationCap,
   Mail,
@@ -18,27 +19,29 @@ import {
   ShieldCheck,
   ShieldUser,
   UserSearch,
+  Users,
 } from "lucide-react";
 import { GithubIcon } from "@/components/BrandIcons";
+import { SectionHeading } from "@/components/SectionHeading";
 import { sispasantias as cs } from "@/data/sispasantias";
 
 export const metadata: Metadata = {
   title: "SisPasantías — Caso de estudio | Emanuel M. Vera",
   description:
-    "Caso de estudio de SisPasantías: plataforma full stack multirol de empleo y pasantías con React, Node.js, Express y PostgreSQL.",
+    "Caso de estudio de SisPasantías: plataforma full stack multirrol de empleo y pasantías, desde el análisis y la documentación hasta el desarrollo con React, Node.js y PostgreSQL, el testing y el despliegue.",
   alternates: { canonical: "/proyectos/sispasantias/" },
   openGraph: {
     type: "article",
     url: "/proyectos/sispasantias/",
     title: "SisPasantías — Caso de estudio | Emanuel M. Vera",
     description:
-      "Plataforma full stack multirol de empleo y pasantías: roles, moderación, pipeline de selección, seguridad, testing y despliegue.",
+      "Plataforma full stack multirrol de empleo y pasantías: análisis, roles, moderación, pipeline de selección, seguridad, testing y despliegue.",
     images: [
       {
         url: "/images/projects/sispasantias/thumb.webp",
         width: 1200,
         height: 675,
-        alt: "Panel de administración de SisPasantías",
+        alt: "Capturas reales de SisPasantías",
       },
     ],
   },
@@ -74,14 +77,56 @@ function Section({
 }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-20 py-10 md:py-12">
-      <div className="mb-6 flex items-center gap-3">
-        <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
-        <h2 id={`${id}-title`} className="text-2xl font-bold text-slate-900">
-          {title}
-        </h2>
-      </div>
+      <SectionHeading id={`${id}-title`}>{title}</SectionHeading>
       {children}
     </section>
+  );
+}
+
+// Pasos numerados con flechas: hacia abajo en mobile, hacia la derecha en 2 columnas (sm)
+// y en `lgCols` columnas (lg). Las clases son literales para que Tailwind las genere.
+const LG_COLS = { 3: "lg:grid-cols-3", 4: "lg:grid-cols-4" } as const;
+
+function StepFlow({
+  steps,
+  lgCols,
+}: {
+  steps: { title: string; detail?: string }[];
+  lgCols: keyof typeof LG_COLS;
+}) {
+  return (
+    <ol className={`grid gap-0 sm:grid-cols-2 sm:gap-3 ${LG_COLS[lgCols]}`}>
+      {steps.map((step, i) => {
+        const last = i === steps.length - 1;
+        const smArrow = !last && i % 2 === 0;
+        const lgArrow = !last && i % lgCols !== lgCols - 1;
+        return (
+          <li key={step.title} className="relative">
+            <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:h-full">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                {i + 1}
+              </span>
+              <div className="min-w-0 pt-1">
+                <p className="text-sm font-semibold text-slate-900">{step.title}</p>
+                {step.detail && <p className="mt-1 text-sm leading-relaxed text-slate-600">{step.detail}</p>}
+              </div>
+            </div>
+            {!last && (
+              <ArrowDown size={16} className="mx-auto my-1.5 text-blue-500 sm:hidden" aria-hidden="true" />
+            )}
+            {(smArrow || lgArrow) && (
+              <ArrowRight
+                size={16}
+                className={`absolute -right-3.5 top-1/2 hidden -translate-y-1/2 text-blue-400 ${
+                  smArrow ? "sm:block" : "sm:hidden"
+                } ${lgArrow ? "lg:block" : "lg:hidden"}`}
+                aria-hidden="true"
+              />
+            )}
+          </li>
+        );
+      })}
+    </ol>
   );
 }
 
@@ -155,7 +200,7 @@ export default function SisPasantiasPage() {
           <div className="rounded-2xl bg-gradient-to-br from-blue-50 via-white to-cyan-50 p-3 sm:p-5">
             <Image
               src={cs.images.thumb}
-              alt="Panel de administración de SisPasantías con indicadores del sistema y la actividad del período"
+              alt="Capturas reales de SisPasantías: espacio de reclutamiento, resumen de empresa y postulaciones del alumno"
               width={1200}
               height={675}
               className="h-auto w-full rounded-xl shadow-xl ring-1 ring-slate-900/5"
@@ -181,10 +226,54 @@ export default function SisPasantiasPage() {
         </ul>
       </Section>
 
+      {/* ── Del análisis a la implementación ── */}
+      <Section id="analisis" title="Del análisis a la implementación">
+        <p className="mb-6 max-w-3xl leading-relaxed text-slate-600">{cs.analysis.intro}</p>
+        <StepFlow steps={cs.analysis.steps} lgCols={3} />
+
+        <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+          <div id="documentacion" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h3 className="flex items-center gap-2 font-semibold text-slate-900">
+              <FileText size={18} className="shrink-0 text-blue-600" aria-hidden="true" />
+              Documentación y análisis
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">{cs.documentation.summary}</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {cs.documentation.artifacts.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <a
+                href={cs.documentation.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ver documentación funcional (${cs.documentation.size}, abre en una pestaña nueva)`}
+                className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg"
+              >
+                <FileText size={16} aria-hidden="true" />
+                Ver documentación funcional
+              </a>
+              <span className="text-xs text-slate-500">{cs.documentation.size}</span>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-blue-100 bg-blue-50/50 p-6">
+            <h3 className="font-semibold text-slate-900">Evolución del proyecto</h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-700">{cs.documentation.evolution}</p>
+          </div>
+        </div>
+      </Section>
+
       {/* ── Solución ── */}
       <Section id="solucion" title="La solución">
         <p className="mb-6 max-w-3xl leading-relaxed text-slate-600">
-          Un sistema multirol con cuatro experiencias distintas. No hay autorregistro público: el
+          Un sistema multirrol con cuatro experiencias distintas. No hay autorregistro público: el
           instituto da de alta a los alumnos y aprueba a las empresas y a sus reclutadores.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -202,34 +291,7 @@ export default function SisPasantiasPage() {
 
       {/* ── Flujo ── */}
       <Section id="flujo" title="Flujo principal">
-        <ol className="grid gap-0 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4">
-          {cs.flow.map((step, i) => (
-            <li key={step} className="relative">
-              <div className="flex h-full items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
-                  {i + 1}
-                </span>
-                <span className="text-sm font-medium text-slate-800">{step}</span>
-              </div>
-              {i < cs.flow.length - 1 && (
-                <>
-                  <ArrowDown
-                    size={16}
-                    className="mx-auto my-1.5 text-blue-500 sm:hidden"
-                    aria-hidden="true"
-                  />
-                  <ArrowRight
-                    size={16}
-                    className={`absolute -right-3.5 top-1/2 hidden -translate-y-1/2 text-blue-400 ${
-                      i % 2 === 0 ? "sm:block" : ""
-                    } ${i % 4 !== 3 ? "lg:block" : "lg:hidden"}`}
-                    aria-hidden="true"
-                  />
-                </>
-              )}
-            </li>
-          ))}
-        </ol>
+        <StepFlow steps={cs.flow.map((title) => ({ title }))} lgCols={4} />
       </Section>
 
       {/* ── Arquitectura ── */}
@@ -286,6 +348,7 @@ export default function SisPasantiasPage() {
 
       {/* ── Seguridad ── */}
       <Section id="seguridad" title="Seguridad y permisos">
+        <p className="mb-6 max-w-3xl leading-relaxed text-slate-600">{cs.securityIntro}</p>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {cs.security.map((item) => (
             <li key={item.title} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -336,24 +399,24 @@ export default function SisPasantiasPage() {
           <figure>
             <Image
               src={cs.images.desktop}
-              alt="Vista de escritorio de SisPasantías: panel del administrador de empresa"
-              width={1600}
-              height={900}
+              alt="Vistas de escritorio de SisPasantías: espacio de reclutamiento, panel de administración, chat y postulaciones del alumno"
+              width={1487}
+              height={1058}
               className="h-auto w-full rounded-xl border border-slate-200 shadow-lg"
               sizes="(max-width: 768px) 100vw, 70vw"
             />
-            <figcaption className="mt-2 text-sm text-slate-500">Escritorio · Administrador de empresa</figcaption>
+            <figcaption className="mt-2 text-sm text-slate-500">Escritorio · Reclutador, administración, chat y alumno</figcaption>
           </figure>
           <figure className="mx-auto w-full max-w-[280px]">
             <Image
               src={cs.images.mobile}
-              alt="Vista móvil de SisPasantías: panel del alumno con el estado de sus postulaciones"
-              width={750}
-              height={1334}
+              alt="Vistas móviles de SisPasantías: panel del alumno y espacio de reclutamiento"
+              width={887}
+              height={1774}
               className="h-auto w-full rounded-2xl border border-slate-200 shadow-lg"
               sizes="280px"
             />
-            <figcaption className="mt-2 text-center text-sm text-slate-500">Móvil · Alumno</figcaption>
+            <figcaption className="mt-2 text-center text-sm text-slate-500">Móvil · Alumno y reclutador</figcaption>
           </figure>
         </div>
       </Section>
@@ -361,9 +424,15 @@ export default function SisPasantiasPage() {
       {/* ── Participación ── */}
       <Section id="participacion" title="Mi participación">
         <div className="rounded-2xl border border-blue-100 bg-blue-50/50 p-6 md:p-8">
-          <p className="leading-relaxed text-slate-700">{cs.participation.intro}</p>
+          <p className="flex items-start gap-2 leading-relaxed text-slate-700">
+            <Users size={18} className="mt-1 shrink-0 text-blue-600" aria-hidden="true" />
+            {cs.participation.intro}
+          </p>
+          <p className="mt-4 text-sm text-slate-700">
+            <span className="font-semibold text-slate-900">Mi rol inicial:</span> {cs.participation.initialRole}
+          </p>
           <p className="mt-3 leading-relaxed text-slate-700">{cs.participation.body}</p>
-          <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+          <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
             {cs.participation.areas.map((area) => (
               <li key={area} className="flex items-start gap-2 text-sm text-slate-700">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden="true" />
