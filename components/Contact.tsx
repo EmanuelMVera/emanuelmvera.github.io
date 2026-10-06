@@ -1,18 +1,16 @@
 import { Mail, Send } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { GithubIcon, LinkedinIcon } from "@/components/BrandIcons";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export function Contact() {
   return (
-    <section id="contacto" className="mx-auto max-w-7xl scroll-mt-20 px-6 py-16">
+    <section id="contacto" aria-labelledby="contacto-title" className="mx-auto max-w-7xl scroll-mt-20 px-6 py-16">
       <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
         <div className="grid gap-12 md:grid-cols-2">
           {/* Left: contact info */}
           <div>
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-slate-900">Contacto</h2>
-            </div>
+            <SectionHeading id="contacto-title">Contacto</SectionHeading>
 
             <p className="leading-relaxed text-slate-600">
               ¿Querés contactarme por una oportunidad laboral, una colaboración o un proyecto?
@@ -36,6 +34,7 @@ export function Contact() {
               <a
                 href={portfolio.links.github}
                 target="_blank"
+                aria-label="github.com/emanuelmvera (abre en una pestaña nueva)"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
               >
@@ -48,6 +47,7 @@ export function Contact() {
               <a
                 href={portfolio.links.linkedin}
                 target="_blank"
+                aria-label="linkedin.com/in/emanuelmvera (abre en una pestaña nueva)"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-slate-600 transition-colors hover:text-blue-600"
               >

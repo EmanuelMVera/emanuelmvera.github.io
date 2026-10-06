@@ -11,6 +11,7 @@ export type Project = {
 export type FeaturedProject = {
   title: string;
   subtitle: string;
+  team: string;
   description: string;
   image: string;
   desktopImage: string;
@@ -24,7 +25,7 @@ export type FeaturedProject = {
 
 export const portfolio = {
   name: "Emanuel M. Vera",
-  role: "Desarrollador Full Stack",
+  role: "Analista de Sistemas | Desarrollador Full Stack",
   email: "emanuel_vera@live.com.ar",
   location: "Guernica, Argentina",
   cvUrl: "/cv/cv-emanuelmvera.pdf",
@@ -36,30 +37,74 @@ export const portfolio = {
     badge: "Aplicaciones web completas y mantenibles",
     firstName: "Emanuel",
     lastName: "M. Vera",
-    role: "Desarrollador Full Stack",
+    roleParts: ["Analista de Sistemas", "Desarrollador Full Stack"],
     description:
-      "Desarrollo aplicaciones web completas con React, Node.js y PostgreSQL: desde la interfaz y las APIs hasta la seguridad, el testing, la base de datos y el despliegue.",
+      "Desarrollo aplicaciones web completas, desde el análisis y el modelado hasta la implementación, el testing, la seguridad y el despliegue.",
     stackLabel: "APIs · Seguridad · Sistemas web",
     techChips: ["React", "Node.js", "PostgreSQL", "Testing"],
   },
   about: {
     paragraphs: [
-      "Soy desarrollador full stack con formación en Análisis de Sistemas. Trabajo con React, Node.js y PostgreSQL construyendo aplicaciones web completas: desde la interfaz y las APIs hasta la autenticación, los permisos, el testing y el despliegue.",
-      "En mi proyecto final trabajé en SisPasantías, una plataforma institucional multirol desarrollada en equipo, con moderación de ofertas, procesos de selección, chat, notificaciones, archivos privados y auditoría.",
+      "Soy desarrollador full stack y estoy próximo a finalizar la Tecnicatura Superior en Análisis de Sistemas. Trabajo con React, Node.js y PostgreSQL construyendo aplicaciones web completas: desde el análisis de requerimientos y el modelado de datos hasta la implementación, el testing, la seguridad y el despliegue.",
+      "En mi proyecto final de carrera, desarrollado en un equipo de cuatro integrantes, participo en SisPasantías: una plataforma institucional multirrol con reglas de negocio, control de permisos, moderación, chat, notificaciones, auditoría, archivos privados y procesos de selección. Ahí trabajé en el diseño de la base de datos, las APIs, la autenticación y autorización, el testing, la documentación y el despliegue.",
       "Me interesa seguir creciendo en proyectos donde pueda combinar desarrollo, análisis de sistemas y calidad de software.",
     ],
     highlights: [
-      { icon: "target", label: "Enfoque", value: "Desarrollo Full Stack" },
-      { icon: "book", label: "Formación", value: "Análisis de Sistemas" },
-      { icon: "lightning", label: "Fortalezas", value: "Desarrollo · Testing · Resolución de problemas" },
-    ],
-    contributions: [
-      "Desarrollo de funcionalidades de extremo a extremo",
-      "Código mantenible y reglas de negocio validadas",
-      "Testing y atención a la calidad",
-      "Comunicación y aprendizaje continuo",
+      { icon: "target", label: "Enfoque", value: "Análisis y desarrollo full stack" },
+      { icon: "book", label: "Formación", value: "Tec. Sup. en Análisis de Sistemas · próximo a finalizar" },
+      { icon: "project", label: "Proyecto principal", value: "SisPasantías · plataforma multirrol" },
     ],
   },
+  strengths: [
+    {
+      title: "Trabajo en equipo",
+      detail:
+        "Proyecto académico de cuatro integrantes, coordinando desarrollo, documentación y evolución funcional.",
+    },
+    {
+      title: "Comunicación técnica",
+      detail:
+        "Explico decisiones con documentación funcional, casos de uso, diagramas y especificaciones.",
+    },
+    {
+      title: "Resolución de problemas",
+      detail:
+        "Reglas de negocio, permisos, seguridad, flujos multirrol e integración entre frontend y backend.",
+    },
+    {
+      title: "Adaptabilidad",
+      detail:
+        "Evoluciono una solución a medida que aparecen nuevos requerimientos sin perder consistencia técnica.",
+    },
+    {
+      title: "Aprendizaje continuo",
+      detail:
+        "Incorporé prácticas de testing, seguridad, CI/CD y despliegue durante el desarrollo de mis proyectos.",
+    },
+  ],
+  process: [
+    {
+      step: "Analizo",
+      icon: "analyze",
+      detail: "Requerimientos, casos de uso, reglas de negocio y necesidades del usuario.",
+    },
+    {
+      step: "Diseño",
+      icon: "design",
+      detail: "Arquitectura, modelos de datos, roles, permisos y flujos del sistema.",
+    },
+    {
+      step: "Desarrollo",
+      icon: "develop",
+      detail: "Frontend, APIs, base de datos, seguridad e integración.",
+    },
+    {
+      step: "Valido",
+      icon: "validate",
+      detail: "Testing funcional, de integración y E2E, revisión de calidad y despliegue.",
+    },
+  ],
+  primarySkills: ["React", "TypeScript", "JavaScript", "Node.js", "Express", "PostgreSQL"],
   skillCategories: [
     {
       category: "Frontend",
@@ -105,8 +150,9 @@ export const portfolio = {
   featuredProject: {
     title: "SisPasantías",
     subtitle: "Portal institucional de empleo y gestión de pasantías",
+    team: "Proyecto académico en equipo",
     description:
-      "Plataforma full stack multirol que conecta alumnos y egresados con empresas y permite al instituto administrar, moderar y auditar el proceso completo de selección.",
+      "Plataforma full stack multirrol que conecta alumnos y egresados con empresas y permite al instituto administrar, moderar y auditar el proceso completo de selección.",
     image: "/images/projects/sispasantias/thumb.webp",
     desktopImage: "/images/projects/sispasantias/desktop.webp",
     mobileImage: "/images/projects/sispasantias/mobile.webp",
@@ -126,7 +172,7 @@ export const portfolio = {
       title: "Billetera virtual",
       kind: "Proyecto personal",
       description:
-        "Aplicación tipo fintech con registro e inicio de sesión, carga de saldo simulada, transferencias entre usuarios e historial de movimientos.",
+        "Aplicación full stack tipo fintech: autenticación con JWT, saldo, transferencias entre usuarios e historial de transacciones, con frontend en React y una API en Express sobre PostgreSQL.",
       image: "/images/projects/billetera-virtual/thumb.webp",
       chips: ["React", "TypeScript", "Node.js", "PostgreSQL", "JWT"],
       repo: "https://github.com/EmanuelMVera/virtual-wallet",
@@ -136,7 +182,7 @@ export const portfolio = {
       title: "App del clima",
       kind: "Proyecto personal",
       description:
-        "Consulta clima actual, pronóstico por horas y próximos días consumiendo una API externa, con foco en diseño responsive.",
+        "Consume una API meteorológica externa para mostrar el clima actual, el pronóstico por horas y los próximos días, con diseño responsive.",
       image: "/images/projects/app-clima/thumb.webp",
       chips: ["React", "API externa", "Responsive"],
       repo: "https://github.com/EmanuelMVera/WeatherProject",
@@ -148,8 +194,8 @@ export const portfolio = {
       title: "Arena Brawler",
       kind: "Proyecto experimental",
       description:
-        "Prototipo de juego multijugador 2D estilo arena: cliente en Godot y servidor en Node.js con TypeScript, Socket.IO y un bot de Telegram.",
-      chips: ["Godot", "TypeScript", "Socket.IO", "Telegraf"],
+        "Prototipo de juego multijugador en tiempo real estilo arena: cliente en Godot y servidor en Node.js con TypeScript y Socket.IO, integrado con un bot de Telegram. No es un producto terminado.",
+      chips: ["Godot", "TypeScript", "Node.js", "Socket.IO", "Telegram"],
       repo: "https://github.com/EmanuelMVera/telegram-arena-game",
     },
   ] satisfies Project[],

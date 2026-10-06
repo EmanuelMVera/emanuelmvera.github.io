@@ -84,7 +84,13 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mt-4 text-xl font-semibold text-blue-600">{hero.role}</p>
+          {/* Dos líneas hasta xl; en pantallas anchas, una sola línea con separador. */}
+          <p className="mt-4 text-xl font-semibold leading-snug text-blue-600">
+            <span className="block xl:inline">{hero.roleParts[0]}</span>
+            <span className="hidden px-2 text-blue-300 xl:inline" aria-hidden="true">|</span>
+            <span className="sr-only"> · </span>
+            <span className="block xl:inline">{hero.roleParts[1]}</span>
+          </p>
 
           {/* Desktop: show full content below heading */}
           <div className="hidden md:block">

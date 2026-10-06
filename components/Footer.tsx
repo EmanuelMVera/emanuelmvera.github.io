@@ -40,7 +40,7 @@ export function Footer() {
               href={portfolio.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub"
+              aria-label="GitHub (abre en una pestaña nueva)"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all hover:border-slate-500 hover:text-white"
             >
               <GithubIcon />
@@ -49,7 +49,7 @@ export function Footer() {
               href={portfolio.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              aria-label="LinkedIn (abre en una pestaña nueva)"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all hover:border-slate-500 hover:text-white"
             >
               <LinkedinIcon />

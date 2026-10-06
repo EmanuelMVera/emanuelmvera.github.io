@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Code2, ExternalLink, FlaskConical } from "lucide-react";
+import { ArrowRight, CheckCircle2, Code2, ExternalLink, FlaskConical, Users } from "lucide-react";
 import { portfolio, type Project } from "@/data/portfolio";
 import { GithubIcon } from "@/components/BrandIcons";
+import { SectionHeading } from "@/components/SectionHeading";
 
 function ProjectLinks({ project, dark = false }: { project: Project; dark?: boolean }) {
   const base = dark
@@ -38,15 +39,6 @@ function ProjectLinks({ project, dark = false }: { project: Project; dark?: bool
   );
 }
 
-function SectionTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mb-6 flex items-center gap-3">
-      <span className="h-2 w-2 rounded-full bg-blue-600" aria-hidden="true" />
-      <h2 className="text-2xl font-bold text-slate-900">{children}</h2>
-    </div>
-  );
-}
-
 function FeaturedProject() {
   const p = portfolio.featuredProject;
 
@@ -55,10 +47,16 @@ function FeaturedProject() {
       <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
         {/* Contenido */}
         <div className="order-2 p-6 sm:p-8 lg:order-1 lg:p-10">
-          <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700">
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-500" aria-hidden="true" />
-            Proyecto principal
-          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-500" aria-hidden="true" />
+              Proyecto principal
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+              <Users size={13} aria-hidden="true" />
+              {p.team}
+            </span>
+          </div>
 
           <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900">{p.title}</h3>
           <p className="mt-1 font-semibold text-blue-600">{p.subtitle}</p>
@@ -130,7 +128,7 @@ function FeaturedProject() {
         >
           <Image
             src={p.image}
-            alt="Panel de administración de SisPasantías con indicadores del sistema y la actividad del período"
+            alt="Capturas reales de SisPasantías: espacio de reclutamiento, resumen de empresa y postulaciones del alumno"
             width={1200}
             height={675}
             className="h-auto w-full rounded-xl shadow-xl ring-1 ring-slate-900/5"
@@ -145,8 +143,8 @@ function FeaturedProject() {
 
 export function Projects() {
   return (
-    <section id="proyectos" className="mx-auto max-w-7xl scroll-mt-20 px-6 py-16">
-      <SectionTitle>Proyectos</SectionTitle>
+    <section id="proyectos" aria-labelledby="proyectos-title" className="mx-auto max-w-7xl scroll-mt-20 px-6 py-16">
+      <SectionHeading id="proyectos-title">Proyectos</SectionHeading>
 
       <FeaturedProject />
 
