@@ -29,6 +29,15 @@
     border-radius: 4px;
   }
 
+  @keyframes float-y {
+    0%, 100% { transform: translateY(-4px); }
+    50% { transform: translateY(4px); }
+  }
+
+  .float-badge {
+    animation: float-y 3.5s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;

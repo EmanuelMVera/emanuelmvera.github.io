@@ -5,9 +5,9 @@ import { FloatingBadges } from "@/components/FloatingBadges";
 
 const techColors: Record<string, string> = {
   React: "#61DAFB",
-  Angular: "#DD0031",
   "Node.js": "#339933",
   PostgreSQL: "#336791",
+  Testing: "#2EAD33",
 };
 
 export function Hero() {
@@ -25,7 +25,7 @@ export function Hero() {
       <a
         href={cvUrl}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:scale-[1.02] hover:border-blue-200 hover:shadow-md active:scale-95"
       >
         <Download size={16} aria-hidden="true" />
@@ -100,7 +100,7 @@ export function Hero() {
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-200/60 to-cyan-100/40 blur-2xl" />
             <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white shadow-xl">
               <Image
-                src="/images/avatar/mifoto-avatar.png"
+                src="/images/avatar/mifoto-avatar.webp"
                 alt="Foto de Emanuel M. Vera"
                 fill
                 className="object-cover object-top"
@@ -128,7 +128,7 @@ export function Hero() {
               style={{ width: "296px", height: "296px", top: "62px", left: "62px" }}
             >
               <Image
-                src="/images/avatar/mifoto-avatar.png"
+                src="/images/avatar/mifoto-avatar.webp"
                 alt="Foto de Emanuel M. Vera"
                 fill
                 className="object-cover object-top"

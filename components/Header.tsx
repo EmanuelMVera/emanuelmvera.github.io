@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
+import Link from "next/link";
 
 const SECTIONS = ["proyectos", "sobre-mi", "skills", "contacto"] as const;
 type SectionId = (typeof SECTIONS)[number];
@@ -34,32 +35,32 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-        <a href="#" className="flex items-center gap-2.5">
+      <nav aria-label="Principal" className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Emanuel M. Vera — inicio">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white shadow-sm">
             EV
           </div>
           <span className="font-semibold text-slate-900">Emanuel M. Vera</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
           {NAV_LINKS.map(({ id, label }) => (
-            <a
+            <Link
               key={id}
-              href={`#${id}`}
+              href={`/#${id}`}
               className={`transition-colors hover:text-blue-600 ${
                 active === id ? "font-semibold text-blue-600" : ""
               }`}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </div>
 
         <a
           href="/cv/cv-emanuelmvera.pdf"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="hidden items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md md:flex"
         >
           <Download size={14} aria-hidden="true" />
